@@ -1,1 +1,109 @@
-Hello World
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+$(document).ready(function(){
+    $("#bt").click(function(){
+        $("p").hide();
+    });
+});
+    </script>
+</head>
+<body style="background-color:powderblue">
+    <style>
+        .text-align{
+            text-align:center;
+        }
+        .text-red{
+            color:red
+        }
+        
+    </style>
+    <h1 class="text-align"><b>Welcome to the new world!!</b></h1>
+    <p>How old are you?</p>
+    <input id="ages" value="" />
+    <button type="button" onclick="accepted()">Click</button>
+    <p id="accept"></p>
+    <pre><p id="Hey" class="text-align text-red" ><i>Hello!
+        this is a very nice day</i> </p></pre>
+    <p id="kay"> alright</p>
+    <button id="bt">Click me to hide paragraphs</button>
+    
+    
+    
+    <button type="button" onclick="Hey() "> About Me?</button>
+    <button type= "button" onclick="red()"> Red!</button>
+    <button type="button" onclick="small()" style="font-size:150%;">-</button>
+    <button type="button" onclick="big()" style="font-size:150%">+</button>
+    
+    <p id="jour" class="text-align"></p>
+    <script>
+        
+
+        var mySelf = {
+            firstName: "Karl",
+            lastName: "Ghorayeb",
+            age: 21,
+            hairColor: "Blonde",
+            eyesColor: "Green",
+            uni: "LAU",
+            major: "Computer Science",
+            ID: "201302667",
+            fullName: function () { return this.firstName + " " + this.lastName; }
+        }
+        function Hey() {
+            var hello = "hello";
+            document.getElementById("Hey").innerHTML = "My name is " + mySelf.fullName()+ " I'm " + mySelf.age + " years old " + "I'm "
+                + mySelf.hairColor + "\n and my eyes are " + mySelf.eyesColor + ".\n I'm a student in " + mySelf.uni + " and my major is " + mySelf.major + " my ID is "+ mySelf.ID ;
+            document.getElementById("Hey").style.color = "grey";
+        }
+        
+        function red()
+        {
+            
+            document.getElementById("kay").style.color = "red";
+            
+         
+        }
+        var size = 100;
+        function big()
+        {
+            size += 10;
+            document.getElementById("kay").style.fontSize = size + "%";
+        }
+        function small()
+        {
+            size -= 10;
+            document.getElementById("kay").style.fontSize = size + "%";
+        }
+        document.getElementById("jour").innerHTML = new Date().toDateString();
+        var age, permited = " ";
+        function accepted()
+        {
+            
+            age = Number(document.getElementById("ages").value);
+            if(isNaN(age))
+            {
+                permited = "Wrong input!!";
+            }
+            else
+            {
+                permited = (age < 18) ? "Too young" : "Old enough";
+            }
+            document.getElementById("accept").innerHTML = permited;
+        }
+    </script>
+    <div ng-app="" ng-init="firstName='Karl'">
+
+      <p> Name:<input  type ="text" ng-model="firstName" /></p> 
+        <p>You wrote: {{firstName}}</p> 
+
+    </div>
+  
+    </script>
+</body>
+</html>
+
